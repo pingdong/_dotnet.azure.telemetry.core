@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{68DE4151-28D5-429D-98CC-B816783C05FF}") = "PingDong.Azure.Telemetry.Core", "src\PingDong.Azure.Telemetry.Core\PingDong.Azure.Telemetry.Core.csproj", "{AEDC2BC2-A216-4D11-AB47-693B57F89DA0}"
+EndProject
+Project("{12BFF3B0-AE3C-4203-91EF-0B0EAB666A3C}") = "PingDong.Azure.Telemetry.Core.UnitTests", "src\PingDong.Azure.Telemetry.Core.UnitTests\PingDong.Azure.Telemetry.Core.UnitTests.csproj", "{9F89D2CC-F5D2-4459-AC60-A7C53897F87C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEDC2BC2-A216-4D11-AB47-693B57F89DA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEDC2BC2-A216-4D11-AB47-693B57F89DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEDC2BC2-A216-4D11-AB47-693B57F89DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEDC2BC2-A216-4D11-AB47-693B57F89DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F89D2CC-F5D2-4459-AC60-A7C53897F87C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F89D2CC-F5D2-4459-AC60-A7C53897F87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F89D2CC-F5D2-4459-AC60-A7C53897F87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F89D2CC-F5D2-4459-AC60-A7C53897F87C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD35ACDD-C493-4B61-9B64-E89C52A97AB0}
+	EndGlobalSection
+EndGlobal
