@@ -26,16 +26,16 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  displayName: Test
   inputs:
     command: test
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
-
 - task: DotNetCoreCLI@2
   displayName: 'Release Build'
   inputs:
-    projects: '$(Parameters.RestoreBuildProjects)'
+    projects: '**/*.csproj'
     arguments: '--configuration $(BuildConfiguration.Release) --output $(Build.ArtifactStagingDirectory)'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
 
