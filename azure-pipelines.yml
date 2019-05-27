@@ -4,13 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- develop
+  - develop
+  - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Debug'
+  BuildConfiguration.Release: 'Release'
 
 steps:
 - script: dotnet restore
@@ -28,3 +30,24 @@ steps:
     command: test
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+
+
+- task: DotNetCoreCLI@2
+  displayName: 'Release Build'
+  inputs:
+    projects: '$(Parameters.RestoreBuildProjects)'
+    arguments: '--configuration $(BuildConfiguration.Release) --output $(Build.ArtifactStagingDirectory)'
+  condition: eq(variables['Build.SourceBranch'], 'master')
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: '**/*.csproj'
+    arguments: '--configuration $(BuildConfiguration.Release) --output $(Build.ArtifactStagingDirectory)'
+  condition: eq(variables['Build.SourceBranch'], 'master')
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  condition: eq(variables['Build.SourceBranch'], 'master')
