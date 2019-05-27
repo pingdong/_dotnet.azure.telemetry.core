@@ -37,7 +37,7 @@ steps:
   inputs:
     projects: '$(Parameters.RestoreBuildProjects)'
     arguments: '--configuration $(BuildConfiguration.Release) --output $(Build.ArtifactStagingDirectory)'
-  condition: eq(variables['Build.SourceBranch'], 'master')
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
 
 - task: DotNetCoreCLI@2
   displayName: Publish
@@ -46,8 +46,8 @@ steps:
     publishWebProjects: false
     projects: '**/*.csproj'
     arguments: '--configuration $(BuildConfiguration.Release) --output $(Build.ArtifactStagingDirectory)'
-  condition: eq(variables['Build.SourceBranch'], 'master')
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
-  condition: eq(variables['Build.SourceBranch'], 'master')
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
